@@ -4,17 +4,53 @@
 <body>
   <wicket:extend>
     <div class="page-pane button-group">
-      <span wicket:id="loginforms">
-      	<form style="display: inline-block;" wicket:id="loginform" method="post" action="../j_spring_security_check">
-      		<button class="positive icon" type="submit">
-      			<div><img src="#" wicket:id="link.icon"/><!-- span wicket:id="link.label"></span --></div>
-      		</button>
-	        <script type="text/javascript">
-	            $('input, textarea').placeholder();
-	        </script>	      		
-      	</form>
-      </span>
-
+      <form action="j_spring_security_check" method="post">
+        <table style="width:300px;">
+          <tbody>
+          <tr>
+            <td style="text-align:right;width:25%;">
+              <label for="username">
+                <wicket:message key="username">Username</wicket:message>
+              </label>
+            </td>
+            <td>
+              <input id="username" name="username" title="username" type="text" value="" wicket:id="username"
+                     wicket:message="title:username"/>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:right;">
+              <label for="password">
+                <wicket:message key="password">Password</wicket:message>
+              </label>
+            </td>
+            <td>
+              <input id="password" name="password" title="password" type="password" value=""
+                     wicket:message="title:password"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+              <label class="shown" for="_spring_security_remember_me">
+                <input id="_spring_security_remember_me" name="_spring_security_remember_me" type="checkbox"/>
+                <wicket:message key="rememberMe" style="display:inline;">Remember me</wicket:message>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align:center;">
+              <button class="button-login positive icon" style="float:none;" type="submit">
+                <div>
+                  <wicket:message key="login">Login</wicket:message>
+                </div>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </form>
     </div>
     </wicket:extend>
 </body>
